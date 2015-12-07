@@ -1,0 +1,43 @@
+{
+  "name": "component-inventory",
+  "description": "Create an inventory of website components from individual files or data stored in a JSON file.",
+  "version": "0.4.0",
+  "homepage": "https://github.com/tilmanjusten/component-inventory",
+  "author": {
+    "name": "Tilman Justen",
+    "email": "git@tilmanjusten.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tilmanjusten/component-inventory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tilmanjusten/component-inventory/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tilmanjusten/component-inventory/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
+}

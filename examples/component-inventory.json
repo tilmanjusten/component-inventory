@@ -1,0 +1,168 @@
+{
+	"options": {
+		"pattern": [
+			{},
+			{}
+		],
+		"templateWrap": {
+			"before": "<template id=\"partial\" {{options}}>",
+			"after": "</template>"
+		},
+		"viewWrap": {
+			"before": "",
+			"after": ""
+		},
+		"base": "./inventory",
+		"partials": "./partials",
+		"flatten": false,
+		"storage": "component-inventory.json",
+		"storePartials": false,
+		"indent": "    "
+	},
+	"length": 5,
+	"items": [
+		{
+			"name": "Document Header",
+			"category": "Document Section",
+			"options": {
+				"extract": "document-header.html",
+				"category": "Document-Section"
+			},
+			"path": "",
+			"filename": "document-header.html",
+			"dest": "document-header.html",
+			"lines": [
+				"<header class=\"document-header\">",
+				"\t<h1>Document header</h1>",
+				"</header>"
+			],
+			"partial": "<header class=\"document-header\">\n\t<h1>Document header</h1>\n</header>",
+			"view": "<header class=\"document-header\">\n\t<h1>Document header</h1>\n</header>",
+			"template": "<template id=\"partial\" data-extract=\"document-header.html\" data-category=\"Document-Section\">\n<header class=\"document-header\">\n\t<h1>Document header</h1>\n</header>\n</template>",
+			"optionsData": "data-extract=\"document-header.html\" data-category=\"Document-Section\"",
+			"origin": [
+				"index.html"
+			]
+		},
+		{
+			"name": "Headline 2",
+			"category": "Content",
+			"options": {
+				"extract": "headline-2.html",
+				"wrap": [
+					"<main class=\"document-main\">",
+					"</main>"
+				],
+				"category": "Content"
+			},
+			"path": "",
+			"filename": "headline-2.html",
+			"dest": "headline-2.html",
+			"lines": [
+				"<h2>Headline</h2>"
+			],
+			"partial": "<h2>Headline</h2>",
+			"view": "<main class=\"document-main\">\n\n    <h2>Headline</h2>\n\n</main>",
+			"template": "<template id=\"partial\" data-extract=\"headline-2.html\" data-wrap=\"['<main class='document-main'>','</main>']\" data-category=\"Content\">\n<h2>Headline</h2>\n</template>",
+			"optionsData": "data-extract=\"headline-2.html\" data-wrap=\"['<main class='document-main'>','</main>']\" data-category=\"Content\"",
+			"origin": [
+				"index.html"
+			]
+		},
+		{
+			"name": "Copytext",
+			"category": "Content",
+			"options": {
+				"extract": "copytext.html",
+				"wrap": [
+					"<main class=\"document-main\">",
+					"</main>"
+				],
+				"category": "Content"
+			},
+			"path": "",
+			"filename": "copytext.html",
+			"dest": "copytext.html",
+			"lines": [
+				"\t<p>",
+				"\t\tEine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich ",
+				"\t\tden süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße.",
+				"\t\tIch bin allein und freue mich meines Lebens in dieser Gegend, ",
+				"\t\tdie für solche Seelen geschaffen ist wie die meine. Ich bin so ",
+				"\t\tglücklich, mein Bester, so ganz in dem Gefühle von ruhigem Dasein ",
+				"\t\tversunken, daß meine Kunst darunter leidet.",
+				"\t</p>",
+				"",
+				"\t<p>",
+				"\t\tIch könnte jetzt nicht zeichnen, nicht einen Strich, und bin nie ",
+				"\t\tein größerer Maler gewesen als in diesen Augenblicken. Wenn das ",
+				"\t\tliebe Tal um mich dampft, und die hohe Sonne an der Oberfläche ",
+				"\t\tder undurchdringlichen Finsternis meines Waldes ruht, und nur ",
+				"\t\teinzelne Strahlen sich in das innere Heiligtum stehlen, ich dann ",
+				"\t\tim hohen Grase am fallenden Bache liege, und näher an der Erde ",
+				"\t\ttausend mannigfaltige Gräschen mir merkwürdig werden;",
+				"\t</p>"
+			],
+			"partial": "\t<p>\n\t\tEine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich \n\t\tden süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße.\n\t\tIch bin allein und freue mich meines Lebens in dieser Gegend, \n\t\tdie für solche Seelen geschaffen ist wie die meine. Ich bin so \n\t\tglücklich, mein Bester, so ganz in dem Gefühle von ruhigem Dasein \n\t\tversunken, daß meine Kunst darunter leidet.\n\t</p>\n\n\t<p>\n\t\tIch könnte jetzt nicht zeichnen, nicht einen Strich, und bin nie \n\t\tein größerer Maler gewesen als in diesen Augenblicken. Wenn das \n\t\tliebe Tal um mich dampft, und die hohe Sonne an der Oberfläche \n\t\tder undurchdringlichen Finsternis meines Waldes ruht, und nur \n\t\teinzelne Strahlen sich in das innere Heiligtum stehlen, ich dann \n\t\tim hohen Grase am fallenden Bache liege, und näher an der Erde \n\t\ttausend mannigfaltige Gräschen mir merkwürdig werden;\n\t</p>",
+			"view": "<main class=\"document-main\">\n\n    \t<p>\n    \t\tEine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich \n    \t\tden süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße.\n    \t\tIch bin allein und freue mich meines Lebens in dieser Gegend, \n    \t\tdie für solche Seelen geschaffen ist wie die meine. Ich bin so \n    \t\tglücklich, mein Bester, so ganz in dem Gefühle von ruhigem Dasein \n    \t\tversunken, daß meine Kunst darunter leidet.\n    \t</p>\n    \n    \t<p>\n    \t\tIch könnte jetzt nicht zeichnen, nicht einen Strich, und bin nie \n    \t\tein größerer Maler gewesen als in diesen Augenblicken. Wenn das \n    \t\tliebe Tal um mich dampft, und die hohe Sonne an der Oberfläche \n    \t\tder undurchdringlichen Finsternis meines Waldes ruht, und nur \n    \t\teinzelne Strahlen sich in das innere Heiligtum stehlen, ich dann \n    \t\tim hohen Grase am fallenden Bache liege, und näher an der Erde \n    \t\ttausend mannigfaltige Gräschen mir merkwürdig werden;\n    \t</p>\n\n</main>",
+			"template": "<template id=\"partial\" data-extract=\"copytext.html\" data-wrap=\"['<main class='document-main'>','</main>']\" data-category=\"Content\">\n\t<p>\n\t\tEine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich \n\t\tden süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße.\n\t\tIch bin allein und freue mich meines Lebens in dieser Gegend, \n\t\tdie für solche Seelen geschaffen ist wie die meine. Ich bin so \n\t\tglücklich, mein Bester, so ganz in dem Gefühle von ruhigem Dasein \n\t\tversunken, daß meine Kunst darunter leidet.\n\t</p>\n\n\t<p>\n\t\tIch könnte jetzt nicht zeichnen, nicht einen Strich, und bin nie \n\t\tein größerer Maler gewesen als in diesen Augenblicken. Wenn das \n\t\tliebe Tal um mich dampft, und die hohe Sonne an der Oberfläche \n\t\tder undurchdringlichen Finsternis meines Waldes ruht, und nur \n\t\teinzelne Strahlen sich in das innere Heiligtum stehlen, ich dann \n\t\tim hohen Grase am fallenden Bache liege, und näher an der Erde \n\t\ttausend mannigfaltige Gräschen mir merkwürdig werden;\n\t</p>\n</template>",
+			"optionsData": "data-extract=\"copytext.html\" data-wrap=\"['<main class='document-main'>','</main>']\" data-category=\"Content\"",
+			"origin": [
+				"index.html"
+			]
+		},
+		{
+			"name": "Blockquote",
+			"category": "Extra",
+			"options": {
+				"extract": "blockquote.html",
+				"wrap": [
+					"<main class=\"document-main\">",
+					"</main>"
+				],
+				"category": "Extra"
+			},
+			"path": "",
+			"filename": "blockquote.html",
+			"dest": "blockquote.html",
+			"lines": [
+				"<blockquote>",
+				"\tWie ein Hund!",
+				"</blockquote>\t"
+			],
+			"partial": "<blockquote>\n\tWie ein Hund!\n</blockquote>\t",
+			"view": "<main class=\"document-main\">\n\n    <blockquote>\n    \tWie ein Hund!\n    </blockquote>\t\n\n</main>",
+			"template": "<template id=\"partial\" data-extract=\"blockquote.html\" data-wrap=\"['<main class='document-main'>','</main>']\" data-category=\"Extra\">\n<blockquote>\n\tWie ein Hund!\n</blockquote>\t\n</template>",
+			"optionsData": "data-extract=\"blockquote.html\" data-wrap=\"['<main class='document-main'>','</main>']\" data-category=\"Extra\"",
+			"origin": [
+				"index.html"
+			]
+		},
+		{
+			"name": "Document Footer",
+			"category": "Document Section",
+			"options": {
+				"extract": "document-footer.html",
+				"category": "Document-Section"
+			},
+			"path": "",
+			"filename": "document-footer.html",
+			"dest": "document-footer.html",
+			"lines": [
+				"<footer class=\"document-footer\">",
+				"\t<ul>",
+				"\t\t\t<li><a href=\"#\">Contact</a><li>",
+				"\t\t\t<li><a href=\"#\">Imprint</a></li>",
+				"\t</ul>",
+				"</footer>"
+			],
+			"partial": "<footer class=\"document-footer\">\n\t<ul>\n\t\t\t<li><a href=\"#\">Contact</a><li>\n\t\t\t<li><a href=\"#\">Imprint</a></li>\n\t</ul>\n</footer>",
+			"view": "<footer class=\"document-footer\">\n\t<ul>\n\t\t\t<li><a href=\"#\">Contact</a><li>\n\t\t\t<li><a href=\"#\">Imprint</a></li>\n\t</ul>\n</footer>",
+			"template": "<template id=\"partial\" data-extract=\"document-footer.html\" data-category=\"Document-Section\">\n<footer class=\"document-footer\">\n\t<ul>\n\t\t\t<li><a href=\"#\">Contact</a><li>\n\t\t\t<li><a href=\"#\">Imprint</a></li>\n\t</ul>\n</footer>\n</template>",
+			"optionsData": "data-extract=\"document-footer.html\" data-category=\"Document-Section\"",
+			"origin": [
+				"index.html"
+			]
+		}
+	]
+}

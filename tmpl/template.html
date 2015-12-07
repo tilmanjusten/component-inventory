@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Component Inventory</title>
+
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        :root, html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+            line-height: 1.4;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 1.6rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .document {
+            max-width: 60em;
+            margin: 3rem auto;
+        }
+
+        .document-header {}
+
+        .document-header__navigation {}
+
+        .document-header__navigation ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .document-header__navigation li {
+            display: inline-block;
+            padding: 0 5px;
+            margin: 0 5px;
+        }
+
+        .document-main {}
+
+        .document-main__navigation {}
+
+        .document-main__navigation ul {}
+
+        .document-main__navigation li {
+            /*display: inline-block;*/
+        }
+
+        .category {}
+
+        .category__title {}
+
+        .component {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .component__title {}
+
+        .component__headline {}
+
+        .component__view {}
+
+        .component__code {
+            background: #fafafa;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="document">
+
+    <header class="document-header">
+        <h1 class="document-title">Component Inventory</h1>
+
+        <!-- Render navigation -->
+        <% if (_.isArray(navigation) && _.isBoolean(isIndex) && isIndex === false) { %>
+
+        <nav class="document-header__navigation">
+            <ul>
+                <li><a href="<%= navigation.index %>">Index</a></li>
+                <% _.forEach(navigation, function (item) { %>
+                <li><a href="<%= item.href %>"><%- item.name %></a></li>
+                <% }); %>
+            </ul>
+        </nav>
+
+        <% } %>
+    </header>
+
+    <main class="document-main">
+
+    <!-- Render index -->
+    <% if (_.isArray(navigation) && _.isBoolean(isIndex) && isIndex === true) { %>
+
+        <nav class="document-main__navigation">
+            <ul>
+                <% _.forEach(navigation, function (item) { %>
+                <li><a href="<%= item.href %>"><%- item.name %></a></li>
+                <% }); %>
+            </ul>
+        </nav>
+
+    <% }; %>
+
+
+    <!-- Render components -->
+    <% if (_.isArray(categories) && _.isBoolean(isIndex) && isIndex === false) { %>
+
+        <% _.forEach(categories, function (category) { %>
+        <div class="category">
+            <h2 class="category__title"><%- category.name %></h2>
+
+            <% _.forEach(category.items, function (item) { %>
+            <div class="component">
+
+                <h3 class="component__title"><%- item.name %></h3>
+
+
+                <h4 class="component__headline">Preview</h4>
+
+                <div class="component__view">
+                    <%= item.view %>
+                </div>
+
+
+                <h4 class="component__headline">Code</h4>
+
+                <div class="component__code" contenteditable><pre><%- item.partial %></pre></div>
+
+            </div>
+            <% }); %>
+
+        </div>
+        <% }); %>
+
+    <% }; %>
+
+
+    </main>
+
+</div>
+
+</body>
+</html>
