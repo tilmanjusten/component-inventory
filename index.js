@@ -34,7 +34,7 @@ ComponentInventory = function (options) {
 
 ComponentInventory.prototype.create = function (callback) {
     var templateFile,
-        storageFile,
+        storage,
         renderingData,
         tmpl,
         sections,
@@ -58,22 +58,28 @@ ComponentInventory.prototype.create = function (callback) {
             }
         ]
     };
-
+    
     fs.accessSync(this.options.template, fs.R_OK, function(err) {
         return callback(err, null);
     });
 
-    fs.accessSync(this.options.storage, fs.R_OK, function(err) {
-        return callback(err, null);
-    });
+    // Assume path to JSON file
+    if (typeof this.options.storage === 'string') {
+        fs.accessSync(this.options.storage, fs.R_OK, function(err) {
+            return callback(err, null);
+        });
+        
+        storage = fs.readJsonSync(this.options.storage);
+    } else if (typeof this.options.storage === 'object') {
+        storage = this.options.storage;
+    } else {
+        return cb("Storage is neither file nor object", null);
+    }
 
-    templateFile = fs.readFileSync(this.options.template, 'utf8');
-
-    storageFile = fs.readJsonSync(this.options.storage);
-
-    renderingData = this.prepareData(storageFile);
+    renderingData = this.prepareData(storage);
 
     // Prepare template
+    templateFile = fs.readFileSync(this.options.template, 'utf8');
     tmpl = template(templateFile, {imports: {'_': _}});
 
     // Split data by category
@@ -155,7 +161,7 @@ ComponentInventory.prototype.create = function (callback) {
 ComponentInventory.prototype.defaultOptions = {
     // Template file path
     template: path.resolve(__dirname, './tmpl/template.html'),
-    // Storage file path
+    // Storage file path or data object
     storage: path.resolve(__dirname, './examples/component-inventory.json'),
     // Partial directory where individual partial files will be stored (relative to base)
     destPartials: './dist/partials',
