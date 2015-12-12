@@ -1,11 +1,3 @@
-/*
- * component-inventory
- * https://github.com/tilmanjusten/component-inventory
- *
- * Copyright (c) 2015 Tilman Justen
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 var _ = require('lodash'),
@@ -27,7 +19,19 @@ InventoryObject.prototype.addUsage = function (value) {
     }
 };
 
-ComponentInventory = function (options) {
+module.exports = ci;
+
+function ci(options) {
+    options = typeof options === 'object' ? options : {};
+
+    return new ComponentInventory(options);
+}
+
+function noop() {
+
+}
+
+ComponentInventory = function (options, callback) {
     // Merge task-specific and/or target-specific options with these defaults.
     this.options = _.assign(this.defaultOptions, options);
 };
@@ -43,7 +47,7 @@ ComponentInventory.prototype.create = function (callback) {
         destPath,
         options = this.options;
 
-    callback = typeof callback === 'function' ? callback : function () {};
+    callback = typeof callback === 'function' ? callback : noop;
 
     // Rendering data examples
     renderingData = {
@@ -58,7 +62,7 @@ ComponentInventory.prototype.create = function (callback) {
             }
         ]
     };
-    
+
     fs.accessSync(this.options.template, fs.R_OK, function(err) {
         return callback(err, null);
     });
@@ -68,7 +72,7 @@ ComponentInventory.prototype.create = function (callback) {
         fs.accessSync(this.options.storage, fs.R_OK, function(err) {
             return callback(err, null);
         });
-        
+
         storage = fs.readJsonSync(this.options.storage);
     } else if (typeof this.options.storage === 'object') {
         storage = this.options.storage;
@@ -288,6 +292,3 @@ function makeInventoryObject(item) {
 
     return new InventoryObject(item);
 }
-
-
-module.exports = ComponentInventory;

@@ -1,10 +1,9 @@
 'use strict';
 
-var CI = require('./index'),
-    ci,
-    callback;
+var ComponentInventory = require('./index'),
+    ci;
 
-callback = function (err, data) {
+function callback(err, data) {
     if (err) {
         console.log("An error occured: ");
         console.log(err);
@@ -14,9 +13,9 @@ callback = function (err, data) {
 
     console.log("Component Inventory data:");
     console.log(data);
-};
+}
 
-ci = new CI({
+ci = ComponentInventory({
     // Template file path
     //template: path.resolve(__dirname, './tmpl/template.html'),
     // Storage file path
@@ -43,4 +42,3 @@ ci = new CI({
 });
 
 ci.create(callback);
-
