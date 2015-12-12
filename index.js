@@ -8,17 +8,15 @@
 
 'use strict';
 
-var options = {};
-var _ = require('lodash');
-var template = require('lodash/string/template');
-var path = require('path');
-var util = require('util');
-var InventoryObject = require('inventory-object');
-var chalk = require('chalk');
-var fs = require('fs');
-var process = require('process');
+var options = {},
+    _ = require('lodash'),
+    template = require('lodash/string/template'),
+    path = require('path'),
+    util = require('util'),
+    InventoryObject = require('inventory-object'),
+    fs = require('fs-extra');
 
-// extend InventoryObject
+// Extend InventoryObject
 InventoryObject.prototype.addUsage = function (value) {
     if (this.usage === undefined) {
         this.usage = [];
@@ -29,7 +27,16 @@ InventoryObject.prototype.addUsage = function (value) {
     }
 };
 
-var ComponentInventory = function (_options) {
+var ComponentInventory = function (options) {
+    var templateFile,
+        storageFile,
+        renderingData,
+        tmpl,
+        sections,
+        navigation,
+        destIndex,
+        destPath;
+
     // Merge task-specific and/or target-specific options with these defaults.
     options = _.assign({
         // Template file path
@@ -55,15 +62,9 @@ var ComponentInventory = function (_options) {
         categoryFallback: 'No category',
         // Data destination
         destData: './dist/inventory.json'
-    }, _options);
+    }, options);
 
-    //console.dir(InventoryObject);
-
-    //process.exit();
-
-    var templateFile;
-    var storageFile;
-    var renderingData = {
+    renderingData = {
         items: [
             {
                 name: 'Component name',
@@ -76,31 +77,27 @@ var ComponentInventory = function (_options) {
         ]
     };
 
-    var tmpl;
-
     fs.accessSync(options.template, fs.R_OK, function(err) {
-        console.log(chalk.yellow('Template file ' + options.template + ' is not readable.'));
-        console.log(chalk.yellow(err));
+        //console.log(chalk.yellow('Template file ' + options.template + ' is not readable.'));
+        //console.log(chalk.yellow(err));
     });
 
     fs.accessSync(options.storage, fs.R_OK, function(err) {
-        console.log(chalk.yellow('Storage file ' + options.storage + ' is not readable.'));
-        console.log(chalk.yellow(err));
+        //console.log(chalk.yellow('Storage file ' + options.storage + ' is not readable.'));
+        //console.log(chalk.yellow(err));
     });
 
-    console.log(chalk.white('Read template file ' + options.template));
     templateFile = fs.readFileSync(options.template, 'utf8');
 
-    console.log(chalk.white('Read storage file ' + options.storage));
     storageFile = JSON.parse(fs.readFileSync(options.storage, 'utf8'));
 
     renderingData = prepareData(storageFile);
 
-    // prepare template
+    // Prepare template
     tmpl = template(templateFile, {imports: {'_': _}});
 
     // Split data by category
-    var sections = renderingData.categories.map(function (category) {
+    sections = renderingData.categories.map(function (category) {
         var renderingDataClone = util._extend({}, renderingData);
 
         renderingDataClone.categories = [];
@@ -112,7 +109,7 @@ var ComponentInventory = function (_options) {
         return renderingDataClone;
     });
 
-    var navigation = {
+    navigation = {
         category: '',
         index: options.dest.filename + options.dest.productionExt,
         items: [],
@@ -121,11 +118,11 @@ var ComponentInventory = function (_options) {
     };
 
     navigation.items = sections.map(function (section) {
-        //get id from section name (equals category name)
-        var id = section.name.replace(/[^\w\d]+/ig, '').toLowerCase();
-        // remove extension
-        var filename = options.dest.filename + '--' + id;
-        var item = {
+        // Get id from section name (equals category name)
+        var id = section.name.replace(/[^\w\d]+/ig, '').toLowerCase(),
+        // Remove extension
+            filename = options.dest.filename + '--' + id,
+            item = {
             href: filename + options.dest.productionExt,
             name: section.name,
             itemLength: section.itemLength
@@ -138,21 +135,14 @@ var ComponentInventory = function (_options) {
 
     renderingData.navigation = navigation;
 
-    console.log('');
-
     // Write index
-    var destIndex = path.resolve(options.dest.path, options.dest.filename + options.dest.ext);
-    var destPath = path.resolve(options.dest.path);
+    destIndex = path.resolve(options.dest.path, options.dest.filename + options.dest.ext);
+    destPath = path.resolve(options.dest.path);
 
     // Create destination dir
-    try {
-        fs.accessSync(destPath, fs.R_OK);
-    } catch (err) {
-        console.log(chalk.green('Create destination directory: %s'), options.dest.path);
-        fs.mkdirSync(destPath);
-    }
+	fs.ensureDirSync(destPath);
 
-    // write file per category and an index file
+    // Write file per category and an index file
     if (options.expand) {
         // Write section inventories
         sections.forEach(function (section) {
@@ -162,12 +152,12 @@ var ComponentInventory = function (_options) {
             writeTemplate(section.dest, tmpl, section);
         });
 
-        // empty category name for index
+        // Empty category name for index
         navigation.category = '';
 
         writeTemplate(destIndex, tmpl, {navigation: navigation, isIndex: true, categories: []});
     } else {
-        // write all components to single file
+        // Write all components to single file
         writeTemplate(destIndex, tmpl, renderingData);
     }
 
@@ -176,128 +166,118 @@ var ComponentInventory = function (_options) {
             navigation: navigation
         };
         fs.writeFileSync(path.resolve(options.destData), JSON.stringify(data, null, '\t'), 'utf8');
-
-        console.log(chalk.green('Stored data in ' + options.destData));
     }
 };
 
 /**
- * write template code to file
+ * Write template code to file
  *
  * @param dest
  * @param tmpl
  * @param data
  */
 function writeTemplate(dest, tmpl, data) {
-    var msg = data.isIndex ? 'Built inventory index in ' : 'Built component inventory in ';
-
-    console.log(chalk.white('Write inventory to file ' + dest));
-
     fs.writeFileSync(dest, tmpl(data), 'utf8');
-
-    console.log(chalk.green(msg + dest));
 }
 
 /**
- * get and prepare list of inventory items
+ * Get and prepare list of inventory items
  *
  * @param data
  * @returns {{options: (*|{}), categories: Array, isIndex: boolean, dest: string}}
  */
 function prepareData(data) {
     if (typeof data !== 'object') {
-        console.log(chalk.red('Item is not an object'));
         return;
     }
 
     var prepared = {
-        options: data.options || {},
-        categories: [],
-        isIndex: true,
-        dest: options.dest.path,
-        lengthUnique: data.lengthUnique || 0,
-        lengthTotal: data.lengthTotal || 0
-    };
-    var item;
-    var uniquePartials = [];
-    var uniqueViewPartials = [];
+            options: data.options || {},
+            categories: [],
+            isIndex: true,
+            dest: options.dest.path,
+            lengthUnique: data.lengthUnique || 0,
+            lengthTotal: data.lengthTotal || 0
+        },
+        item,
+        uniquePartials = [],
+        uniqueViewPartials = [];
 
     _.forEach(data.items, function (el) {
+        var categoryIndex,
+            isDuplicate = false,
+            categoryItems,
+            filename;
+
         item = makeInventoryObject(el);
 
         if (!item) {
             return false;
         }
 
-        // set default category to item
+        // Set default category to item
         item.category = item.category || options.categoryFallback;
 
-        var categoryIndex = _.findIndex(prepared.categories, function (category) {
+        categoryIndex = _.findIndex(prepared.categories, function (category) {
             return category.name === item.category;
         });
-        var isDuplicate = false;
 
         if (categoryIndex < 0) {
-            console.log(chalk.white('Create and prepare category ' + item.category));
-
             var categoryObj = {
                 items: {},
                 name: item.category
             };
 
             prepared.categories.push(categoryObj);
-            // the index of the added item is the last one
+            // The index of the added item is the last one
             categoryIndex = prepared.categories.length - 1;
         }
 
-        var categoryItems = prepared.categories[categoryIndex].items;
+        categoryItems = prepared.categories[categoryIndex].items;
 
-        // store unique partials
+        // Store unique partials
         if (uniquePartials.indexOf(item.id) < 0) {
-            //item.addUsage(item.origin);
             uniquePartials.push(item.id);
             categoryItems[item.id] = item;
-            console.log(chalk.green('Is not yet known: ' + item.id));
         } else {
             isDuplicate = true;
-            console.log(chalk.red('Is duplicate: ' + item.id));
         }
-        // add usage (itemIndex of first is 0)
+        // Add usage (itemIndex of first is 0)
         categoryItems[item.id].addUsage(item.origin);
 
         if (uniqueViewPartials.indexOf(item.viewId) < 0) {
             uniqueViewPartials.push(item.viewId);
         }
 
-        // store partial if not already happen
+        // Store partial if not already happen
         if (options.storePartials && !isDuplicate) {
-            var filename = item.id + options.partialExt;
+            filename = item.id + options.partialExt;
             fs.writeFileSync(path.resolve(options.destPartials, filename), item.template, 'utf8');
         }
     });
 
-    // sort categories and items by name
+    // Sort categories and items by name
     prepared.categories = _.sortBy(prepared.categories, 'name');
 
     prepared.categories.forEach(function (category) {
         category.items = _.sortBy(category.items, 'name');
     });
 
-    console.log(chalk.white('Categories: ' + prepared.categories.length));
-    console.log(chalk.white('Items: ' + uniquePartials.length));
-    console.log(chalk.white('View items: ' + uniqueViewPartials.length));
+    //console.log(chalk.white('Categories: ' + prepared.categories.length));
+    //console.log(chalk.white('Items: ' + uniquePartials.length));
+    //console.log(chalk.white('View items: ' + uniqueViewPartials.length));
 
     return prepared;
 }
 
 /**
+ * Create inventory object from item
  *
  * @param item
  * @returns {*}
  */
 function makeInventoryObject(item) {
     if (!_.isPlainObject(item)) {
-        console.log(chalk.red('Item is not an object'));
         return false;
     }
 
