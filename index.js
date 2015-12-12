@@ -8,13 +8,13 @@
 
 'use strict';
 
-var options = {},
-    _ = require('lodash'),
+var _ = require('lodash'),
     template = require('lodash/string/template'),
     path = require('path'),
     util = require('util'),
     InventoryObject = require('inventory-object'),
-    fs = require('fs-extra');
+    fs = require('fs-extra'),
+    ComponentInventory;
 
 // Extend InventoryObject
 InventoryObject.prototype.addUsage = function (value) {
@@ -27,7 +27,12 @@ InventoryObject.prototype.addUsage = function (value) {
     }
 };
 
-var ComponentInventory = function (options) {
+ComponentInventory = function (options) {
+    // Merge task-specific and/or target-specific options with these defaults.
+    this.options = _.assign(this.defaultOptions, options);
+};
+
+ComponentInventory.prototype.create = function (callback) {
     var templateFile,
         storageFile,
         renderingData,
@@ -35,35 +40,12 @@ var ComponentInventory = function (options) {
         sections,
         navigation,
         destIndex,
-        destPath;
+        destPath,
+        options = this.options;
 
-    // Merge task-specific and/or target-specific options with these defaults.
-    options = _.assign({
-        // Template file path
-        template: path.resolve(__dirname, './tmpl/template.html'),
-        // Storage file path
-        storage: path.resolve(__dirname, './examples/component-inventory.json'),
-        // Partial directory where individual partial files will be stored (relative to base)
-        destPartials: './dist/partials',
-        // Component inventory destination
-        dest: {
-            path: './dist',
-            filename: 'component-inventory',
-            ext: '.html',
-            productionExt: '.html'
-        },
-        // Expand: create file per category
-        expand: false,
-        // Create partial files
-        storePartials: false,
-        // Partial extension when stored
-        partialExt: '.html',
-        // Category for items without category
-        categoryFallback: 'No category',
-        // Data destination
-        destData: './dist/inventory.json'
-    }, options);
+    callback = typeof callback === 'function' ? callback : function () {};
 
+    // Rendering data examples
     renderingData = {
         items: [
             {
@@ -77,21 +59,19 @@ var ComponentInventory = function (options) {
         ]
     };
 
-    fs.accessSync(options.template, fs.R_OK, function(err) {
-        //console.log(chalk.yellow('Template file ' + options.template + ' is not readable.'));
-        //console.log(chalk.yellow(err));
+    fs.accessSync(this.options.template, fs.R_OK, function(err) {
+        return callback(err, null);
     });
 
-    fs.accessSync(options.storage, fs.R_OK, function(err) {
-        //console.log(chalk.yellow('Storage file ' + options.storage + ' is not readable.'));
-        //console.log(chalk.yellow(err));
+    fs.accessSync(this.options.storage, fs.R_OK, function(err) {
+        return callback(err, null);
     });
 
-    templateFile = fs.readFileSync(options.template, 'utf8');
+    templateFile = fs.readFileSync(this.options.template, 'utf8');
 
-    storageFile = JSON.parse(fs.readFileSync(options.storage, 'utf8'));
+    storageFile = fs.readJsonSync(this.options.storage);
 
-    renderingData = prepareData(storageFile);
+    renderingData = this.prepareData(storageFile);
 
     // Prepare template
     tmpl = template(templateFile, {imports: {'_': _}});
@@ -111,7 +91,7 @@ var ComponentInventory = function (options) {
 
     navigation = {
         category: '',
-        index: options.dest.filename + options.dest.productionExt,
+        index: this.options.dest.filename + this.options.dest.productionExt,
         items: [],
         lengthUnique: renderingData.lengthUnique,
         lengthTotal: renderingData.lengthTotal
@@ -120,7 +100,7 @@ var ComponentInventory = function (options) {
     navigation.items = sections.map(function (section) {
         // Get id from section name (equals category name)
         var id = section.name.replace(/[^\w\d]+/ig, '').toLowerCase(),
-        // Remove extension
+            // Remove extension
             filename = options.dest.filename + '--' + id,
             item = {
             href: filename + options.dest.productionExt,
@@ -136,49 +116,67 @@ var ComponentInventory = function (options) {
     renderingData.navigation = navigation;
 
     // Write index
-    destIndex = path.resolve(options.dest.path, options.dest.filename + options.dest.ext);
-    destPath = path.resolve(options.dest.path);
+    destIndex = path.resolve(this.options.dest.path, this.options.dest.filename + this.options.dest.ext);
+    destPath = path.resolve(this.options.dest.path);
 
     // Create destination dir
 	fs.ensureDirSync(destPath);
 
     // Write file per category and an index file
-    if (options.expand) {
+    if (this.options.expand) {
         // Write section inventories
         sections.forEach(function (section) {
             navigation.category = section.name;
             section.navigation = navigation;
 
-            writeTemplate(section.dest, tmpl, section);
+            fs.writeFileSync(section.dest, tmpl(section), 'utf8');
         });
 
         // Empty category name for index
         navigation.category = '';
 
-        writeTemplate(destIndex, tmpl, {navigation: navigation, isIndex: true, categories: []});
+        fs.writeFileSync(destIndex, tmpl({navigation: navigation, isIndex: true, categories: []}), 'utf8');
     } else {
         // Write all components to single file
-        writeTemplate(destIndex, tmpl, renderingData);
+        fs.writeFileSync(destIndex, tmpl(renderingData), 'utf8');
     }
 
-    if (options.destData) {
+    if (this.options.destData) {
         var data = {
             navigation: navigation
         };
-        fs.writeFileSync(path.resolve(options.destData), JSON.stringify(data, null, '\t'), 'utf8');
+
+        fs.writeJsonSync(path.resolve(this.options.destData), data);
     }
+
+    return callback(null, renderingData);
 };
 
-/**
- * Write template code to file
- *
- * @param dest
- * @param tmpl
- * @param data
- */
-function writeTemplate(dest, tmpl, data) {
-    fs.writeFileSync(dest, tmpl(data), 'utf8');
-}
+ComponentInventory.prototype.defaultOptions = {
+    // Template file path
+    template: path.resolve(__dirname, './tmpl/template.html'),
+    // Storage file path
+    storage: path.resolve(__dirname, './examples/component-inventory.json'),
+    // Partial directory where individual partial files will be stored (relative to base)
+    destPartials: './dist/partials',
+    // Component inventory destination
+    dest: {
+        path: './dist',
+        filename: 'component-inventory',
+        ext: '.html',
+        productionExt: '.html'
+    },
+    // Expand: create file per category
+    expand: false,
+    // Create partial files
+    storePartials: false,
+    // Partial extension when stored
+    partialExt: '.html',
+    // Category for items without category
+    categoryFallback: 'No category',
+    // Data destination
+    destData: './dist/inventory.json'
+};
 
 /**
  * Get and prepare list of inventory items
@@ -186,7 +184,7 @@ function writeTemplate(dest, tmpl, data) {
  * @param data
  * @returns {{options: (*|{}), categories: Array, isIndex: boolean, dest: string}}
  */
-function prepareData(data) {
+ComponentInventory.prototype.prepareData = function (data) {
     if (typeof data !== 'object') {
         return;
     }
@@ -195,13 +193,14 @@ function prepareData(data) {
             options: data.options || {},
             categories: [],
             isIndex: true,
-            dest: options.dest.path,
+            dest: this.options.dest.path,
             lengthUnique: data.lengthUnique || 0,
             lengthTotal: data.lengthTotal || 0
         },
         item,
         uniquePartials = [],
-        uniqueViewPartials = [];
+        uniqueViewPartials = [],
+        options = this.options;
 
     _.forEach(data.items, function (el) {
         var categoryIndex,
@@ -268,7 +267,7 @@ function prepareData(data) {
     //console.log(chalk.white('View items: ' + uniqueViewPartials.length));
 
     return prepared;
-}
+};
 
 /**
  * Create inventory object from item
