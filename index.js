@@ -31,7 +31,7 @@ function noop() {
 
 }
 
-ComponentInventory = function (options, callback) {
+ComponentInventory = function (options) {
     // Merge task-specific and/or target-specific options with these defaults.
     this.options = _.assign(this.defaultOptions, options);
 };
