@@ -286,7 +286,7 @@ ComponentInventory.prototype.prepareData = function (data) {
  * @returns {*}
  */
 function makeInventoryObject(item) {
-    if (!_.isPlainObject(item)) {
+    if (typeof item !== 'object') {
         return false;
     }
 
