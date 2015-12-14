@@ -1,7 +1,7 @@
 {
   "name": "component-inventory",
   "description": "Create an inventory of website components from individual files or data stored in a JSON file.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/tilmanjusten/component-inventory",
   "author": {
     "name": "Tilman Justen",
