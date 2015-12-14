@@ -1,11 +1,11 @@
-# content-inventory
+# component-inventory
 
 > Create an inventory of website components from individual files or data stored in a JSON file.
 
 ## Getting Started
 
 ```shell
-npm install content-inventory --save-dev
+npm install component-inventory --save-dev
 ```
 
 ## Contributing
