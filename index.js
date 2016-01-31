@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash'),
-    template = require('lodash/string/template'),
+    template = require('lodash/template'),
     path = require('path'),
     util = require('util'),
     InventoryObject = require('inventory-object'),
@@ -27,16 +27,14 @@ function ci(options) {
     return new ComponentInventory(options);
 }
 
-function noop() {
-
-}
-
 ComponentInventory = function (options) {
     // Merge task-specific and/or target-specific options with these defaults.
-    this.options = _.assign(this.defaultOptions, options);
+    this.options = Object.assign(this.defaultOptions, options);
 };
 
 ComponentInventory.prototype.create = function (callback) {
+    callback = typeof callback === 'function' ? callback : () => {};
+
     var templateFile,
         storage,
         renderingData,
@@ -46,8 +44,6 @@ ComponentInventory.prototype.create = function (callback) {
         destIndex,
         destPath,
         options = this.options;
-
-    callback = typeof callback === 'function' ? callback : noop;
 
     // Rendering data examples
     renderingData = {
@@ -88,7 +84,7 @@ ComponentInventory.prototype.create = function (callback) {
 
     // Split data by category
     sections = renderingData.categories.map(function (category) {
-        var renderingDataClone = util._extend({}, renderingData);
+        const renderingDataClone = util._extend({}, renderingData);
 
         renderingDataClone.categories = [];
         renderingDataClone.categories.push(category);
@@ -109,15 +105,16 @@ ComponentInventory.prototype.create = function (callback) {
 
     navigation.items = sections.map(function (section) {
         // Get id from section name (equals category name)
-        var id = section.name.replace(/[^\w\d]+/ig, '').toLowerCase(),
-            // Remove extension
-            filename = options.dest.filename + '--' + id,
-            item = {
+        const id = section.name.replace(/[^\w\d]+/ig, '').toLowerCase();
+        // Remove extension
+        const filename = options.dest.filename + '--' + id;
+        const item = {
             href: filename + options.dest.productionExt,
             name: section.name,
             itemLength: section.itemLength
         };
 
+        // todo: Setting dest in every iteration?
         section.dest = path.resolve(options.dest.path, filename + options.dest.ext);
 
         return item;
@@ -196,29 +193,24 @@ ComponentInventory.prototype.defaultOptions = {
  */
 ComponentInventory.prototype.prepareData = function (data) {
     if (typeof data !== 'object') {
-        return;
+        return {};
     }
 
-    var prepared = {
+    const prepared = {
             options: data.options || {},
             categories: [],
             isIndex: true,
             dest: this.options.dest.path,
             lengthUnique: data.lengthUnique || 0,
             lengthTotal: data.lengthTotal || 0
-        },
-        item,
-        uniquePartials = [],
-        uniqueViewPartials = [],
-        options = this.options;
+        };
+    const uniquePartials = [];
+    const uniqueViewPartials = [];
+    const options = this.options;
 
-    _.forEach(data.items, function (el) {
-        var categoryIndex,
-            isDuplicate = false,
-            categoryItems,
-            filename;
-
-        item = makeInventoryObject(el);
+    data.items.forEach(function (el) {
+        let isDuplicate = false;
+        const item = makeInventoryObject(el);
 
         if (!item) {
             return false;
@@ -227,9 +219,7 @@ ComponentInventory.prototype.prepareData = function (data) {
         // Set default category to item
         item.category = item.category || options.categoryFallback;
 
-        categoryIndex = _.findIndex(prepared.categories, function (category) {
-            return category.name === item.category;
-        });
+        let categoryIndex = prepared.categories.findIndex((category) => category.name === item.category);
 
         if (categoryIndex < 0) {
             var categoryObj = {
@@ -242,7 +232,7 @@ ComponentInventory.prototype.prepareData = function (data) {
             categoryIndex = prepared.categories.length - 1;
         }
 
-        categoryItems = prepared.categories[categoryIndex].items;
+        const categoryItems = prepared.categories[categoryIndex].items;
 
         // Store unique partials
         if (uniquePartials.indexOf(item.id) < 0) {
@@ -251,6 +241,7 @@ ComponentInventory.prototype.prepareData = function (data) {
         } else {
             isDuplicate = true;
         }
+
         // Add usage (itemIndex of first is 0)
         categoryItems[item.id].addUsage(item.origin);
 
@@ -260,7 +251,7 @@ ComponentInventory.prototype.prepareData = function (data) {
 
         // Store partial if not already happen
         if (options.storePartials && !isDuplicate) {
-            filename = item.id + options.partialExt;
+            const filename = item.id + options.partialExt;
             fs.writeFileSync(path.resolve(options.destPartials, filename), item.template, 'utf8');
         }
     });
@@ -271,10 +262,6 @@ ComponentInventory.prototype.prepareData = function (data) {
     prepared.categories.forEach(function (category) {
         category.items = _.sortBy(category.items, 'name');
     });
-
-    //console.log(chalk.white('Categories: ' + prepared.categories.length));
-    //console.log(chalk.white('Items: ' + uniquePartials.length));
-    //console.log(chalk.white('View items: ' + uniqueViewPartials.length));
 
     return prepared;
 };
