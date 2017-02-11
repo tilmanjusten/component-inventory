@@ -35,15 +35,15 @@ ComponentInventory = function (options) {
 ComponentInventory.prototype.create = function (callback) {
     callback = typeof callback === 'function' ? callback : () => {};
 
-    var templateFile,
-        storage,
-        renderingData,
-        tmpl,
-        sections,
-        navigation,
-        destIndex,
-        destPath,
-        options = this.options;
+    var templateFile;
+    var storage;
+    var renderingData;
+    var tmpl;
+    var sections;
+    var navigation;
+    var destIndex;
+    var destPath;
+    var options = this.options;
 
     // Rendering data examples
     renderingData = {
