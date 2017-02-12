@@ -253,7 +253,13 @@ ComponentInventory.prototype.prepareData = function (data) {
         // Store partial if not already happened
         if (options.storePartials && !isDuplicate) {
             const filename = item.id + options.partialExt;
-            fs.writeFileSync(path.resolve(options.destPartials, filename), item.template, 'utf8');
+            const destinationPath = path.resolve(options.destPartials, filename);
+
+            fs.ensureDir(path.dirname(destinationPath), function (err) {
+                if (err === null) {
+                    fs.writeFileSync(destinationPath, item.template, 'utf8');
+                }
+            });
         }
     });
 
