@@ -1,7 +1,6 @@
 'use strict';
 
-var ComponentInventory = require('./index'),
-    ci;
+var ComponentInventory = require('./index');
 
 function callback(err, data) {
     if (err) {
@@ -15,7 +14,7 @@ function callback(err, data) {
     console.log(data);
 }
 
-ci = ComponentInventory({
+var ci = ComponentInventory({
     // Template file path
     //template: path.resolve(__dirname, './tmpl/template.html'),
     // Storage file path

@@ -1,12 +1,12 @@
 'use strict';
 
-var _ = require('lodash'),
-    template = require('lodash/template'),
-    path = require('path'),
-    util = require('util'),
-    InventoryObject = require('inventory-object'),
-    fs = require('fs-extra'),
-    ComponentInventory;
+var _ = require('lodash');
+var template = require('lodash/template');
+var path = require('path');
+var util = require('util');
+var InventoryObject = require('inventory-object');
+var fs = require('fs-extra');
+var ComponentInventory;
 
 // Extend InventoryObject
 InventoryObject.prototype.addUsage = function (value) {
@@ -30,6 +30,32 @@ function ci(options) {
 ComponentInventory = function (options) {
     // Merge task-specific and/or target-specific options with these defaults.
     this.options = Object.assign(this.defaultOptions, options);
+};
+
+ComponentInventory.prototype.defaultOptions = {
+    // Template file path
+    template: path.resolve(__dirname, './tmpl/template.html'),
+    // Storage file path or data object
+    storage: path.resolve(__dirname, './examples/component-inventory.json'),
+    // Partial directory where individual partial files will be stored (relative to base)
+    destPartials: './dist/partials',
+    // Component inventory destination
+    dest: {
+        path: './dist',
+        filename: 'component-inventory',
+        ext: '.html',
+        productionExt: '.html'
+    },
+    // Expand: create file per category
+    expand: false,
+    // Create partial files
+    storePartials: false,
+    // Partial extension when stored
+    partialExt: '.html',
+    // Category for items without category
+    categoryFallback: 'No category',
+    // Data destination
+    destData: './dist/inventory.json'
 };
 
 ComponentInventory.prototype.create = function (callback) {
@@ -159,32 +185,6 @@ ComponentInventory.prototype.create = function (callback) {
     return callback(null, renderingData);
 };
 
-ComponentInventory.prototype.defaultOptions = {
-    // Template file path
-    template: path.resolve(__dirname, './tmpl/template.html'),
-    // Storage file path or data object
-    storage: path.resolve(__dirname, './examples/component-inventory.json'),
-    // Partial directory where individual partial files will be stored (relative to base)
-    destPartials: './dist/partials',
-    // Component inventory destination
-    dest: {
-        path: './dist',
-        filename: 'component-inventory',
-        ext: '.html',
-        productionExt: '.html'
-    },
-    // Expand: create file per category
-    expand: false,
-    // Create partial files
-    storePartials: false,
-    // Partial extension when stored
-    partialExt: '.html',
-    // Category for items without category
-    categoryFallback: 'No category',
-    // Data destination
-    destData: './dist/inventory.json'
-};
-
 /**
  * Get and prepare list of inventory items
  *
@@ -221,6 +221,7 @@ ComponentInventory.prototype.prepareData = function (data) {
 
         let categoryIndex = prepared.categories.findIndex((category) => category.name === item.category);
 
+        // create category if it does not exist
         if (categoryIndex < 0) {
             var categoryObj = {
                 items: {},
@@ -249,7 +250,7 @@ ComponentInventory.prototype.prepareData = function (data) {
             uniqueViewPartials.push(item.viewId);
         }
 
-        // Store partial if not already happen
+        // Store partial if not already happened
         if (options.storePartials && !isDuplicate) {
             const filename = item.id + options.partialExt;
             fs.writeFileSync(path.resolve(options.destPartials, filename), item.template, 'utf8');

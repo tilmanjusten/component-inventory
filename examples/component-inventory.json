@@ -2,7 +2,7 @@
 	"options": {
 		"patternExtract": {},
 		"templateWrap": {
-			"before": "<template id=\"partial\" {{wrapData}}>",
+			"before": "<template id=\"template\">",
 			"after": "</template>"
 		},
 		"viewWrap": {
