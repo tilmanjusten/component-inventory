@@ -1,11 +1,6 @@
 {
 	"options": {
-		"patternExtract": {},
-		"templateWrap": {
-			"before": "<template id=\"template\">",
-			"after": "</template>"
-		},
-		"viewWrap": {
+		"wrap": {
 			"before": "",
 			"after": ""
 		},
@@ -18,7 +13,7 @@
 		"resources": {
 			"classnames": {
 				"root": "no-js lt-ie9",
-				"body": "page--article"
+				"body": "article"
 			},
 			"meta": [
 				"<meta charset=\"utf-8\">",
@@ -55,9 +50,9 @@
 			"id": "030f8c6391be300467ee2c7a46e5f7de47572bc6",
 			"group": "",
 			"lines": [
-				"<div class=\"document-header__media-container\">",
+				"<div class=\"header-media-container\">",
 				"",
-				"    <img class=\"document-header__image\" src=\"assets/img/header-background.jpg\" width=\"1008\" height=\"368\" alt=\"Foto von Zutaten: Kartoffeln, Mayonaise, Milch, Salz und ein Bund Dill\">",
+				"    <img class=\"header-image\" src=\"assets/img/header.jpg\" width=\"1000\" height=\"420\" alt=\"Alternative content\">",
 				"",
 				"</div>"
 			],
@@ -70,13 +65,11 @@
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Header image\" data-category=\"Header\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<div class=\"document-header__media-container\">\n\n    <img class=\"document-header__image\" src=\"assets/img/header-background.jpg\" width=\"1008\" height=\"368\" alt=\"Foto von Zutaten: Kartoffeln, Mayonaise, Milch, Salz und ein Bund Dill\">\n\n</div>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -105,9 +98,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Header image\" data-category=\"Header\" data-wrap-before=\"\" data-wrap-after=\"\">\n<div class=\"document-header__media-container\">\n\n    <img class=\"document-header__image\" src=\"assets/img/header-background.jpg\" width=\"1008\" height=\"368\" alt=\"Foto von Zutaten: Kartoffeln, Mayonaise, Milch, Salz und ein Bund Dill\">\n\n</div>\n</template>",
 			"usage": [],
-			"view": "<div class=\"document-header__media-container\">\n\n    <img class=\"document-header__image\" src=\"assets/img/header-background.jpg\" width=\"1008\" height=\"368\" alt=\"Foto von Zutaten: Kartoffeln, Mayonaise, Milch, Salz und ein Bund Dill\">\n\n</div>",
 			"viewId": "cfc79f2c80cc02895264f7b0e71d2f48cbbd5a6f"
 		},
 		{
@@ -115,24 +106,22 @@
 			"id": "4f2bbc028ac99c75c79965b1a8dd960f524c42a6",
 			"group": "",
 			"lines": [
-				"<a class=\"header-logo\" href=\"/\">NGG.net</a>"
+				"<a class=\"logo\" href=\"/\">Logo label</a>"
 			],
-			"name": "Header logo",
+			"name": "Logo",
 			"options": {
-				"extract": "Header logo",
+				"extract": "Logo",
 				"category": "Header",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Header logo\" data-category=\"Header\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<a class=\"header-logo\" href=\"/\">NGG.net</a>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -161,9 +150,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Header logo\" data-category=\"Header\" data-wrap-before=\"\" data-wrap-after=\"\">\n<a class=\"header-logo\" href=\"/\">NGG.net</a>\n</template>",
 			"usage": [],
-			"view": "<a class=\"header-logo\" href=\"/\">NGG.net</a>",
 			"viewId": "04736aabccadbb7edcebfee7c1813b75b41ae6d4"
 		},
 		{
@@ -171,34 +158,24 @@
 			"id": "9e61a18d0e17e4aeeb1642ba68d5a6b4521f0d62",
 			"group": "",
 			"lines": [
-				"<div class=\"header-sharing\">",
-				"",
-				"    <ul>",
-				"        <li><a class=\"header-sharing__button header-sharing__button--twitter\" href=\"#\">Twitter</a></li>",
-				"        <li><a class=\"header-sharing__button header-sharing__button--facebook\" href=\"#\">Facebook</a></li>",
-				"        <li><a class=\"header-sharing__button header-sharing__button--youtube\" href=\"#\">Youtube</a></li>",
-				"        <li><a class=\"header-sharing__button header-sharing__button--ngg150years\" href=\"#\">150 Jahre NGG</a></li>",
-				"        <li><a class=\"header-sharing__button header-sharing__button--mail\" href=\"#\">E-Mail</a></li>",
-				"    </ul>",
-				"",
+				"<div class=\"sharing\">",
+				"	Sharing buttons",
 				"</div>"
 			],
-			"name": "Sharing buttons header",
+			"name": "Sharing",
 			"options": {
-				"extract": "Sharing buttons header",
+				"extract": "Sharing",
 				"category": "Sharing",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Sharing buttons header\" data-category=\"Sharing\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<div class=\"header-sharing\">\n\n    <ul>\n        <li><a class=\"header-sharing__button header-sharing__button--twitter\" href=\"#\">Twitter</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--facebook\" href=\"#\">Facebook</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--youtube\" href=\"#\">Youtube</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--ngg150years\" href=\"#\">150 Jahre NGG</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--mail\" href=\"#\">E-Mail</a></li>\n    </ul>\n\n</div>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -227,9 +204,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Sharing buttons header\" data-category=\"Sharing\" data-wrap-before=\"\" data-wrap-after=\"\">\n<div class=\"header-sharing\">\n\n    <ul>\n        <li><a class=\"header-sharing__button header-sharing__button--twitter\" href=\"#\">Twitter</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--facebook\" href=\"#\">Facebook</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--youtube\" href=\"#\">Youtube</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--ngg150years\" href=\"#\">150 Jahre NGG</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--mail\" href=\"#\">E-Mail</a></li>\n    </ul>\n\n</div>\n</template>",
 			"usage": [],
-			"view": "<div class=\"header-sharing\">\n\n    <ul>\n        <li><a class=\"header-sharing__button header-sharing__button--twitter\" href=\"#\">Twitter</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--facebook\" href=\"#\">Facebook</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--youtube\" href=\"#\">Youtube</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--ngg150years\" href=\"#\">150 Jahre NGG</a></li>\n        <li><a class=\"header-sharing__button header-sharing__button--mail\" href=\"#\">E-Mail</a></li>\n    </ul>\n\n</div>",
 			"viewId": "f4176785a070e643d2250c47009151409f61e676"
 		},
 		{
@@ -237,34 +212,27 @@
 			"id": "6fb215eee740e578bd407963b3dcd46317109083",
 			"group": "",
 			"lines": [
-				"<div class=\"header-hero\">",
-				"",
-				"    <div class=\"header-hero__main\">",
-				"        <strong class=\"header-hero__150years\">1865 - 2015: 150 Jahre NGG</strong>",
-				"        <span class=\"header-hero__title\">",
-				"            Frische Rezepte <br>für",
-				"            <strong>gute Arbeit.</strong>",
-				"        </span>",
+				"<div class=\"hero\">",
+				"    <div class=\"hero-main\">",
+				"        <span class=\"hero-title\">Block title</span>",
+				"        <strong class=\"hero-content\">Block content</strong>",
 				"    </div>",
-				"",
 				"</div>"
 			],
-			"name": "Hero in header",
+			"name": "Hero",
 			"options": {
-				"extract": "Hero in header",
+				"extract": "Hero",
 				"category": "Header",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Hero in header\" data-category=\"Header\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<div class=\"header-hero\">\n\n    <div class=\"header-hero__main\">\n        <strong class=\"header-hero__150years\">1865 - 2015: 150 Jahre NGG</strong>\n        <span class=\"header-hero__title\">\n            Frische Rezepte <br>für\n            <strong>gute Arbeit.</strong>\n        </span>\n    </div>\n\n</div>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -293,9 +261,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Hero in header\" data-category=\"Header\" data-wrap-before=\"\" data-wrap-after=\"\">\n<div class=\"header-hero\">\n\n    <div class=\"header-hero__main\">\n        <strong class=\"header-hero__150years\">1865 - 2015: 150 Jahre NGG</strong>\n        <span class=\"header-hero__title\">\n            Frische Rezepte <br>für\n            <strong>gute Arbeit.</strong>\n        </span>\n    </div>\n\n</div>\n</template>",
 			"usage": [],
-			"view": "<div class=\"header-hero\">\n\n    <div class=\"header-hero__main\">\n        <strong class=\"header-hero__150years\">1865 - 2015: 150 Jahre NGG</strong>\n        <span class=\"header-hero__title\">\n            Frische Rezepte <br>für\n            <strong>gute Arbeit.</strong>\n        </span>\n    </div>\n\n</div>",
 			"viewId": "76457f56b883959538df12a2f69ac8ff97b3c1b5"
 		},
 		{
@@ -322,13 +288,11 @@
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Content italic\" data-category=\"Content\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<p>\n    <em>\n        Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon\n        folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten\n        Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute\n        verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn\n        beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?\n    </em>\n</p>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -357,9 +321,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Content italic\" data-category=\"Content\" data-wrap-before=\"\" data-wrap-after=\"\">\n<p>\n    <em>\n        Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon\n        folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten\n        Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute\n        verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn\n        beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?\n    </em>\n</p>\n</template>",
 			"usage": [],
-			"view": "<p>\n    <em>\n        Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon\n        folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten\n        Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute\n        verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn\n        beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?\n    </em>\n</p>",
 			"viewId": "f2079dd65cd8c2c1046d6c5e632263a62520cc70"
 		},
 		{
@@ -367,7 +329,7 @@
 			"id": "6d047d8cee4190e251f54ddf7baa4d756afb78c5",
 			"group": "",
 			"lines": [
-				"<h2 class=\"content__headline\">Zwischenüberschrift</h2>",
+				"<h2 class=\"headline\">Zwischenüberschrift</h2>",
 				"",
 				"<p>",
 				"    Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und",
@@ -377,7 +339,7 @@
 				"    Beinahe wäre er dabei über den umgestürzten Mülleimer gefallen, der mitten im Weg lag.",
 				"</p>",
 				"",
-				"<h3 class=\"content__headline\">150 Jahre</h3>",
+				"<h3 class=\"headline\">Dunkelheit seinen Weg</h3>",
 				"",
 				"<p>",
 				"    Er versuchte, sich in der Dunkelheit seinen Weg zu ertasten und erstarrte: Anscheinend gab es",
@@ -402,13 +364,11 @@
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Content\" data-category=\"Content\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<h2 class=\"content__headline\">Zwischenüberschrift</h2>\n\n<p>\n    Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und\n    die stählerne Acht um seine Handgelenke würde gleich zuschnappen? Er konnte die Aufforderung\n    stehen zu bleiben schon hören. Gehetzt sah er sich um. Plötzlich erblickte er den schmalen\n    Durchgang. Blitzartig drehte er sich nach rechts und verschwand zwischen den beiden Gebäuden.\n    Beinahe wäre er dabei über den umgestürzten Mülleimer gefallen, der mitten im Weg lag.\n</p>\n\n<h3 class=\"content__headline\">150 Jahre</h3>\n\n<p>\n    Er versuchte, sich in der Dunkelheit seinen Weg zu ertasten und erstarrte: Anscheinend gab es\n    keinen anderen Ausweg aus diesem kleinen Hof als den Durchgang, durch den er gekommen war. Die\n    Schritte wurden lauter und lauter, er sah eine dunkle Gestalt um die Ecke biegen. Fieberhaft\n    irrten seine Augen durch die nächtliche Dunkelheit und suchten einen Ausweg. War jetzt wirklich\n    alles vorbei, waren alle Mühe und alle Vorbereitungen umsonst? Er presste sich ganz eng an die\n    Wand hinter ihm und hoffte, der Verfolger würde ihn übersehen, als plötzlich neben ihm mit kaum\n    wahrnehmbarem Quietschen eine Tür im nächtlichen Wind hin und her schwang. Könnte dieses der\n    flehentlich herbeigesehnte Ausweg aus seinem Dilemma sein? Langsam bewegte er sich auf die\n    offene Tür zu, immer dicht an die Mauer gepresst. Würde diese Tür seine Rettung werden? Er\n    hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät\n    in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel?\n</p>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -437,9 +397,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Content\" data-category=\"Content\" data-wrap-before=\"\" data-wrap-after=\"\">\n<h2 class=\"content__headline\">Zwischenüberschrift</h2>\n\n<p>\n    Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und\n    die stählerne Acht um seine Handgelenke würde gleich zuschnappen? Er konnte die Aufforderung\n    stehen zu bleiben schon hören. Gehetzt sah er sich um. Plötzlich erblickte er den schmalen\n    Durchgang. Blitzartig drehte er sich nach rechts und verschwand zwischen den beiden Gebäuden.\n    Beinahe wäre er dabei über den umgestürzten Mülleimer gefallen, der mitten im Weg lag.\n</p>\n\n<h3 class=\"content__headline\">150 Jahre</h3>\n\n<p>\n    Er versuchte, sich in der Dunkelheit seinen Weg zu ertasten und erstarrte: Anscheinend gab es\n    keinen anderen Ausweg aus diesem kleinen Hof als den Durchgang, durch den er gekommen war. Die\n    Schritte wurden lauter und lauter, er sah eine dunkle Gestalt um die Ecke biegen. Fieberhaft\n    irrten seine Augen durch die nächtliche Dunkelheit und suchten einen Ausweg. War jetzt wirklich\n    alles vorbei, waren alle Mühe und alle Vorbereitungen umsonst? Er presste sich ganz eng an die\n    Wand hinter ihm und hoffte, der Verfolger würde ihn übersehen, als plötzlich neben ihm mit kaum\n    wahrnehmbarem Quietschen eine Tür im nächtlichen Wind hin und her schwang. Könnte dieses der\n    flehentlich herbeigesehnte Ausweg aus seinem Dilemma sein? Langsam bewegte er sich auf die\n    offene Tür zu, immer dicht an die Mauer gepresst. Würde diese Tür seine Rettung werden? Er\n    hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät\n    in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel?\n</p>\n</template>",
 			"usage": [],
-			"view": "<h2 class=\"content__headline\">Zwischenüberschrift</h2>\n\n<p>\n    Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und\n    die stählerne Acht um seine Handgelenke würde gleich zuschnappen? Er konnte die Aufforderung\n    stehen zu bleiben schon hören. Gehetzt sah er sich um. Plötzlich erblickte er den schmalen\n    Durchgang. Blitzartig drehte er sich nach rechts und verschwand zwischen den beiden Gebäuden.\n    Beinahe wäre er dabei über den umgestürzten Mülleimer gefallen, der mitten im Weg lag.\n</p>\n\n<h3 class=\"content__headline\">150 Jahre</h3>\n\n<p>\n    Er versuchte, sich in der Dunkelheit seinen Weg zu ertasten und erstarrte: Anscheinend gab es\n    keinen anderen Ausweg aus diesem kleinen Hof als den Durchgang, durch den er gekommen war. Die\n    Schritte wurden lauter und lauter, er sah eine dunkle Gestalt um die Ecke biegen. Fieberhaft\n    irrten seine Augen durch die nächtliche Dunkelheit und suchten einen Ausweg. War jetzt wirklich\n    alles vorbei, waren alle Mühe und alle Vorbereitungen umsonst? Er presste sich ganz eng an die\n    Wand hinter ihm und hoffte, der Verfolger würde ihn übersehen, als plötzlich neben ihm mit kaum\n    wahrnehmbarem Quietschen eine Tür im nächtlichen Wind hin und her schwang. Könnte dieses der\n    flehentlich herbeigesehnte Ausweg aus seinem Dilemma sein? Langsam bewegte er sich auf die\n    offene Tür zu, immer dicht an die Mauer gepresst. Würde diese Tür seine Rettung werden? Er\n    hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät\n    in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel?\n</p>",
 			"viewId": "0b62413be40a6bf0fc4098b67aaf04c2f3fa083c"
 		},
 		{
@@ -447,24 +405,22 @@
 			"id": "80b7989cf72dd45fe916f761fd1d82b1eba4f67e",
 			"group": "",
 			"lines": [
-				"<a class=\"navigation-button\" href=\"#\">zur Deutschlandkarte</a>"
+				"<a class=\"trigger\" href=\"#\">Trigger</a>"
 			],
-			"name": "Navigation button",
+			"name": "Trigger",
 			"options": {
-				"extract": "Navigation button",
+				"extract": "Trigger",
 				"category": "Navigation",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Navigation button\" data-category=\"Navigation\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<a class=\"navigation-button\" href=\"#\">zur Deutschlandkarte</a>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -493,9 +449,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Navigation button\" data-category=\"Navigation\" data-wrap-before=\"\" data-wrap-after=\"\">\n<a class=\"navigation-button\" href=\"#\">zur Deutschlandkarte</a>\n</template>",
 			"usage": [],
-			"view": "<a class=\"navigation-button\" href=\"#\">zur Deutschlandkarte</a>",
 			"viewId": "6d7e6919770100b9891e8b70d63082cec909233e"
 		},
 		{
@@ -503,24 +457,22 @@
 			"id": "817cca987499128d037e8d82833124e1ce1961d7",
 			"group": "",
 			"lines": [
-				"<a class=\"c2a c2a--ngg\" href=\"#\">Erfahre mehr zur Aktion der <br><strong>NGG</strong></a>"
+				"<a class=\"block\" href=\"#\">Block</a>"
 			],
-			"name": "Call to action (NGG)",
+			"name": "Block",
 			"options": {
-				"extract": "Call to action (NGG)",
+				"extract": "Block",
 				"category": "Components",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"optionsData": "data-extract=\"Call to action (NGG)\" data-category=\"Components\" data-wrap-before=\"\" data-wrap-after=\"\"",
 			"origin": "about.html",
-			"partial": "<a class=\"c2a c2a--ngg\" href=\"#\">Erfahre mehr zur Aktion der <br><strong>NGG</strong></a>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -549,9 +501,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Call to action (NGG)\" data-category=\"Components\" data-wrap-before=\"\" data-wrap-after=\"\">\n<a class=\"c2a c2a--ngg\" href=\"#\">Erfahre mehr zur Aktion der <br><strong>NGG</strong></a>\n</template>",
 			"usage": [],
-			"view": "<a class=\"c2a c2a--ngg\" href=\"#\">Erfahre mehr zur Aktion der <br><strong>NGG</strong></a>",
 			"viewId": "adcb68521adee7130652023c402327f060027bc7"
 		},
 		{
@@ -559,39 +509,37 @@
 			"id": "d2309ec8b799f43cdd6bc0aab0e8185fe17ccaf2",
 			"group": "",
 			"lines": [
-				"<article class=\"featured-teaser\">",
+				"<article class=\"feature\">",
 				"",
-				"    <a class=\"featured-teaser__blocklink\" href=\"#\">",
+				"    <a class=\"feature-link\" href=\"#\">",
 				"",
-				"        <header class=\"featured-teaser__header\">",
-				"            <span class=\"feature-teaser__superheadline\">Bezirk Nord <br>//Schleswig-Holstein</span>",
-				"            <h3 class=\"feature-teaser__title\">Birnen, Bohnen und Speck</h3>",
+				"        <header class=\"feature-header\">",
+				"            <span class=\"feature-teaser-superheadline\">Superheadline</span>",
+				"            <h3 class=\"feature-teaser-title\">Title</h3>",
 				"        </header>",
 				"",
-				"        <div class=\"feature-teaser__main\">",
-				"            <span class=\"featured-teaser__more\">zum Rezept</span>",
+				"        <div class=\"feature-main\">",
+				"            <span class=\"feature-more\">more...</span>",
 				"        </div>",
 				"",
 				"    </a>",
 				"",
 				"</article>"
 			],
-			"name": "Featured teaser",
+			"name": "Feature",
 			"options": {
-				"extract": "Featured teaser",
+				"extract": "Feature",
 				"category": "Teaser",
 				"wrap": {
-					"before": "<div class=\"teaser-list teaser-list--small\">",
+					"before": "<div class=\"wrapper\">",
 					"after": "</div>"
 				}
 			},
-			"optionsData": "data-extract=\"Featured teaser\" data-category=\"Teaser\" data-wrap-before=\"<div class='teaser-list teaser-list--small'>\" data-wrap-after=\"</div>\"",
 			"origin": "about.html",
-			"partial": "<article class=\"featured-teaser\">\n\n    <a class=\"featured-teaser__blocklink\" href=\"#\">\n\n        <header class=\"featured-teaser__header\">\n            <span class=\"feature-teaser__superheadline\">Bezirk Nord <br>//Schleswig-Holstein</span>\n            <h3 class=\"feature-teaser__title\">Birnen, Bohnen und Speck</h3>\n        </header>\n\n        <div class=\"feature-teaser__main\">\n            <span class=\"featured-teaser__more\">zum Rezept</span>\n        </div>\n\n    </a>\n\n</article>",
 			"resources": {
 				"classnames": {
 					"root": "no-js lt-ie9",
-					"body": "page--article"
+					"body": "article"
 				},
 				"meta": [
 					"<meta charset=\"utf-8\">",
@@ -620,9 +568,7 @@
 					"inline": []
 				}
 			},
-			"template": "<template id=\"partial\" data-extract=\"Featured teaser\" data-category=\"Teaser\" data-wrap-before=\"<div class='teaser-list teaser-list--small'>\" data-wrap-after=\"</div>\">\n<article class=\"featured-teaser\">\n\n    <a class=\"featured-teaser__blocklink\" href=\"#\">\n\n        <header class=\"featured-teaser__header\">\n            <span class=\"feature-teaser__superheadline\">Bezirk Nord <br>//Schleswig-Holstein</span>\n            <h3 class=\"feature-teaser__title\">Birnen, Bohnen und Speck</h3>\n        </header>\n\n        <div class=\"feature-teaser__main\">\n            <span class=\"featured-teaser__more\">zum Rezept</span>\n        </div>\n\n    </a>\n\n</article>\n</template>",
 			"usage": [],
-			"view": "<div class=\"teaser-list teaser-list--small\">\n\n    <article class=\"featured-teaser\">\n    \n        <a class=\"featured-teaser__blocklink\" href=\"#\">\n    \n            <header class=\"featured-teaser__header\">\n                <span class=\"feature-teaser__superheadline\">Bezirk Nord <br>//Schleswig-Holstein</span>\n                <h3 class=\"feature-teaser__title\">Birnen, Bohnen und Speck</h3>\n            </header>\n    \n            <div class=\"feature-teaser__main\">\n                <span class=\"featured-teaser__more\">zum Rezept</span>\n            </div>\n    \n        </a>\n    \n    </article>\n\n</div>",
 			"viewId": "51acba4a4529cee4e0dde784f34a801e5b891366"
 		}
 	],

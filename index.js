@@ -84,7 +84,6 @@ ComponentInventory.prototype.create = function (callback) {
             }
         ]
     };
-
     fs.accessSync(this.options.template, fs.R_OK, function(err) {
         return callback(err, null);
     });
