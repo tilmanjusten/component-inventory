@@ -130,13 +130,15 @@
                 <h4 class="component__headline">Preview</h4>
 
                 <div class="component__view">
-                    <%= item.view %>
+                    <%= item.options.wrap.before %>
+                    <%= item.lines.join('\n') %>
+                    <%= item.options.wrap.after %>
                 </div>
 
 
                 <h4 class="component__headline">Code</h4>
 
-                <div class="component__code" contenteditable><pre><%- item.partial %></pre></div>
+                <div class="component__code" contenteditable><pre><code><%= _.escape(item.lines.join('\n')) %></code></pre></div>
 
             </div>
             <% }); %>

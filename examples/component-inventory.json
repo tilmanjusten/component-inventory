@@ -4,574 +4,712 @@
 			"before": "",
 			"after": ""
 		},
-		"base": "./inventory/",
-		"partials": "partials/",
-		"storage": "./inventory/data/interface-inventory.json",
-		"storePartials": false,
-		"indent": "    ",
+		"partials": "./dist/partials/",
+		"ext": ".html",
+		"storage": "./dist/interface-inventory.json",
+		"storePartials": true,
+		"indent": "  ",
 		"force": true,
 		"resources": {
 			"classnames": {
-				"root": "no-js lt-ie9",
-				"body": "article"
+				"root": "",
+				"body": ""
 			},
-			"meta": [
-				"<meta charset=\"utf-8\">",
-				"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-				"<meta name=\"description\" content=\"\">",
-				"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-				"<meta name=\"format-detection\" content=\"telephone=no\">"
-			],
+			"meta": [],
 			"scriptsFoot": {
-				"files": [
-					"js/vendor.js",
-					"js/main.js"
-				],
+				"files": [],
 				"inline": []
 			},
 			"scriptsHead": {
-				"files": [
-					"js/polyfill.js"
-				],
+				"files": [],
 				"inline": []
 			},
 			"stylesHead": {
-				"files": [
-					"css/main.css"
-				],
+				"files": [],
 				"inline": []
 			}
 		}
 	},
 	"length": 0,
+	"lengthUnique": 13,
+	"lengthTotal": 15,
 	"items": [
 		{
-			"category": "Header",
-			"id": "030f8c6391be300467ee2c7a46e5f7de47572bc6",
+			"category": "No category",
+			"id": "818d7c5b",
 			"group": "",
 			"lines": [
-				"<div class=\"header-media-container\">",
+				"Outer Partial Header",
 				"",
-				"    <img class=\"header-image\" src=\"assets/img/header.jpg\" width=\"1000\" height=\"420\" alt=\"Alternative content\">",
 				"",
-				"</div>"
+				"    First nested in Outer.",
+				"",
+				"",
+				"",
+				"    Second nested in Outer.",
+				"",
+				"",
+				"Footer Content of Outer."
 			],
-			"name": "Header image",
+			"name": "Outer Partial",
 			"options": {
-				"extract": "Header image",
-				"category": "Header",
+				"extract": "Outer Partial",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"origin": "about.html",
+			"origin": "nested-partials-simple.html",
 			"resources": {
 				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
+					"root": "",
+					"body": ""
 				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
+				"meta": [],
 				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
+					"files": [],
 					"inline": []
 				}
 			},
 			"usage": [],
-			"viewId": "cfc79f2c80cc02895264f7b0e71d2f48cbbd5a6f"
+			"viewId": "68cc3ee0"
 		},
 		{
-			"category": "Header",
-			"id": "4f2bbc028ac99c75c79965b1a8dd960f524c42a6",
+			"category": "test",
+			"id": "ee66763b",
 			"group": "",
 			"lines": [
-				"<a class=\"logo\" href=\"/\">Logo label</a>"
+				"Second Outer Partial."
 			],
-			"name": "Logo",
+			"name": "Single Partial",
 			"options": {
-				"extract": "Logo",
-				"category": "Header",
+				"extract": "Single Partial",
+				"category": "test",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"origin": "about.html",
+			"origin": "nested-partials-simple.html",
 			"resources": {
 				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
+					"root": "",
+					"body": ""
 				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
+				"meta": [],
 				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
+					"files": [],
 					"inline": []
 				}
 			},
 			"usage": [],
-			"viewId": "04736aabccadbb7edcebfee7c1813b75b41ae6d4"
+			"viewId": "a21aeaa4"
 		},
 		{
-			"category": "Sharing",
-			"id": "9e61a18d0e17e4aeeb1642ba68d5a6b4521f0d62",
+			"category": "test",
+			"id": "da641134",
 			"group": "",
 			"lines": [
-				"<div class=\"sharing\">",
-				"	Sharing buttons",
-				"</div>"
+				"Third Outer Partial with multiline extraction options."
 			],
-			"name": "Sharing",
+			"name": "Multiline extraction options",
 			"options": {
-				"extract": "Sharing",
-				"category": "Sharing",
+				"extract": "Single Partial",
+				"category": "test",
+				"name": "Multiline extraction options",
 				"wrap": {
 					"before": "",
 					"after": ""
 				}
 			},
-			"origin": "about.html",
+			"origin": "nested-partials-simple.html",
 			"resources": {
 				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
+					"root": "",
+					"body": ""
 				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
+				"meta": [],
 				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
+					"files": [],
 					"inline": []
 				}
 			},
 			"usage": [],
-			"viewId": "f4176785a070e643d2250c47009151409f61e676"
+			"viewId": "149fa229"
 		},
 		{
-			"category": "Header",
-			"id": "6fb215eee740e578bd407963b3dcd46317109083",
+			"category": "No category",
+			"id": "d70b08ab",
 			"group": "",
 			"lines": [
-				"<div class=\"hero\">",
-				"    <div class=\"hero-main\">",
-				"        <span class=\"hero-title\">Block title</span>",
-				"        <strong class=\"hero-content\">Block content</strong>",
-				"    </div>",
-				"</div>"
+				"First nested in Outer."
 			],
-			"name": "Hero",
+			"name": "Nested",
 			"options": {
-				"extract": "Hero",
-				"category": "Header",
+				"extract": "Nested",
+				"Partial": "First Child of #1 ",
 				"wrap": {
-					"before": "",
-					"after": ""
-				}
-			},
-			"origin": "about.html",
-			"resources": {
-				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
-				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
-				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
-					"inline": []
-				},
-				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
-					"inline": []
-				},
-				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
-					"inline": []
-				}
-			},
-			"usage": [],
-			"viewId": "76457f56b883959538df12a2f69ac8ff97b3c1b5"
-		},
-		{
-			"category": "Content",
-			"id": "88cfc25f0cf658935be6ef7023dee94c20c71b7d",
-			"group": "",
-			"lines": [
-				"<p>",
-				"    <em>",
-				"        Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon",
-				"        folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten",
-				"        Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute",
-				"        verschwinden wollte! Hatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn",
-				"        beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern?",
-				"    </em>",
-				"</p>"
-			],
-			"name": "Content italic",
-			"options": {
-				"extract": "Content italic",
-				"category": "Content",
-				"wrap": {
-					"before": "",
-					"after": ""
-				}
-			},
-			"origin": "about.html",
-			"resources": {
-				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
-				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
-				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
-					"inline": []
-				},
-				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
-					"inline": []
-				},
-				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
-					"inline": []
-				}
-			},
-			"usage": [],
-			"viewId": "f2079dd65cd8c2c1046d6c5e632263a62520cc70"
-		},
-		{
-			"category": "Content",
-			"id": "6d047d8cee4190e251f54ddf7baa4d756afb78c5",
-			"group": "",
-			"lines": [
-				"<h2 class=\"headline\">Zwischenüberschrift</h2>",
-				"",
-				"<p>",
-				"    Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und",
-				"    die stählerne Acht um seine Handgelenke würde gleich zuschnappen? Er konnte die Aufforderung",
-				"    stehen zu bleiben schon hören. Gehetzt sah er sich um. Plötzlich erblickte er den schmalen",
-				"    Durchgang. Blitzartig drehte er sich nach rechts und verschwand zwischen den beiden Gebäuden.",
-				"    Beinahe wäre er dabei über den umgestürzten Mülleimer gefallen, der mitten im Weg lag.",
-				"</p>",
-				"",
-				"<h3 class=\"headline\">Dunkelheit seinen Weg</h3>",
-				"",
-				"<p>",
-				"    Er versuchte, sich in der Dunkelheit seinen Weg zu ertasten und erstarrte: Anscheinend gab es",
-				"    keinen anderen Ausweg aus diesem kleinen Hof als den Durchgang, durch den er gekommen war. Die",
-				"    Schritte wurden lauter und lauter, er sah eine dunkle Gestalt um die Ecke biegen. Fieberhaft",
-				"    irrten seine Augen durch die nächtliche Dunkelheit und suchten einen Ausweg. War jetzt wirklich",
-				"    alles vorbei, waren alle Mühe und alle Vorbereitungen umsonst? Er presste sich ganz eng an die",
-				"    Wand hinter ihm und hoffte, der Verfolger würde ihn übersehen, als plötzlich neben ihm mit kaum",
-				"    wahrnehmbarem Quietschen eine Tür im nächtlichen Wind hin und her schwang. Könnte dieses der",
-				"    flehentlich herbeigesehnte Ausweg aus seinem Dilemma sein? Langsam bewegte er sich auf die",
-				"    offene Tür zu, immer dicht an die Mauer gepresst. Würde diese Tür seine Rettung werden? Er",
-				"    hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät",
-				"    in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel?",
-				"</p>"
-			],
-			"name": "Content",
-			"options": {
-				"extract": "Content",
-				"category": "Content",
-				"wrap": {
-					"before": "",
-					"after": ""
-				}
-			},
-			"origin": "about.html",
-			"resources": {
-				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
-				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
-				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
-					"inline": []
-				},
-				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
-					"inline": []
-				},
-				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
-					"inline": []
-				}
-			},
-			"usage": [],
-			"viewId": "0b62413be40a6bf0fc4098b67aaf04c2f3fa083c"
-		},
-		{
-			"category": "Navigation",
-			"id": "80b7989cf72dd45fe916f761fd1d82b1eba4f67e",
-			"group": "",
-			"lines": [
-				"<a class=\"trigger\" href=\"#\">Trigger</a>"
-			],
-			"name": "Trigger",
-			"options": {
-				"extract": "Trigger",
-				"category": "Navigation",
-				"wrap": {
-					"before": "",
-					"after": ""
-				}
-			},
-			"origin": "about.html",
-			"resources": {
-				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
-				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
-				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
-					"inline": []
-				},
-				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
-					"inline": []
-				},
-				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
-					"inline": []
-				}
-			},
-			"usage": [],
-			"viewId": "6d7e6919770100b9891e8b70d63082cec909233e"
-		},
-		{
-			"category": "Components",
-			"id": "817cca987499128d037e8d82833124e1ce1961d7",
-			"group": "",
-			"lines": [
-				"<a class=\"block\" href=\"#\">Block</a>"
-			],
-			"name": "Block",
-			"options": {
-				"extract": "Block",
-				"category": "Components",
-				"wrap": {
-					"before": "",
-					"after": ""
-				}
-			},
-			"origin": "about.html",
-			"resources": {
-				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
-				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
-				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
-					"inline": []
-				},
-				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
-					"inline": []
-				},
-				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
-					"inline": []
-				}
-			},
-			"usage": [],
-			"viewId": "adcb68521adee7130652023c402327f060027bc7"
-		},
-		{
-			"category": "Teaser",
-			"id": "d2309ec8b799f43cdd6bc0aab0e8185fe17ccaf2",
-			"group": "",
-			"lines": [
-				"<article class=\"feature\">",
-				"",
-				"    <a class=\"feature-link\" href=\"#\">",
-				"",
-				"        <header class=\"feature-header\">",
-				"            <span class=\"feature-teaser-superheadline\">Superheadline</span>",
-				"            <h3 class=\"feature-teaser-title\">Title</h3>",
-				"        </header>",
-				"",
-				"        <div class=\"feature-main\">",
-				"            <span class=\"feature-more\">more...</span>",
-				"        </div>",
-				"",
-				"    </a>",
-				"",
-				"</article>"
-			],
-			"name": "Feature",
-			"options": {
-				"extract": "Feature",
-				"category": "Teaser",
-				"wrap": {
-					"before": "<div class=\"wrapper\">",
+					"before": "<div class=\"component-wrap\">",
 					"after": "</div>"
 				}
 			},
-			"origin": "about.html",
+			"origin": "nested-partials-simple.html",
 			"resources": {
 				"classnames": {
-					"root": "no-js lt-ie9",
-					"body": "article"
+					"root": "",
+					"body": ""
 				},
-				"meta": [
-					"<meta charset=\"utf-8\">",
-					"<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-					"<meta name=\"description\" content=\"\">",
-					"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
-					"<meta name=\"format-detection\" content=\"telephone=no\">"
-				],
+				"meta": [],
 				"scriptsFoot": {
-					"files": [
-						"js/vendor.js",
-						"js/main.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"scriptsHead": {
-					"files": [
-						"js/polyfill.js"
-					],
+					"files": [],
 					"inline": []
 				},
 				"stylesHead": {
-					"files": [
-						"css/main.css"
-					],
+					"files": [],
 					"inline": []
 				}
 			},
 			"usage": [],
-			"viewId": "51acba4a4529cee4e0dde784f34a801e5b891366"
+			"viewId": "2cf32a8d"
+		},
+		{
+			"category": "test",
+			"id": "1f626e9d",
+			"group": "",
+			"lines": [
+				"Second nested in Outer."
+			],
+			"name": "Named component",
+			"options": {
+				"extract": "Nested",
+				"Partial": "Second Child of #1 ",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				},
+				"category": "test",
+				"name": "Named component"
+			},
+			"origin": "nested-partials-simple.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "72bb2184"
+		},
+		{
+			"category": "No category",
+			"id": "d70b08ab",
+			"group": "",
+			"lines": [
+				"First nested in Outer."
+			],
+			"name": "Nested",
+			"options": {
+				"extract": "Nested",
+				"Partial": "First Child of #1 ",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				}
+			},
+			"origin": "no-nested-partials.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "2cf32a8d"
+		},
+		{
+			"category": "test",
+			"id": "1f626e9d",
+			"group": "",
+			"lines": [
+				"Second nested in Outer."
+			],
+			"name": "Named component",
+			"options": {
+				"extract": "Nested",
+				"Partial": "Second Child of #1 ",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				},
+				"category": "test",
+				"name": "Named component"
+			},
+			"origin": "no-nested-partials.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "72bb2184"
+		},
+		{
+			"category": "No category",
+			"id": "0c6a595c",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Simple component without options</h2>",
+				"",
+				"",
+				"    <div class=\"test-component\">",
+				"        <h2 class=\"test-component__title\">Wrapped component</h2>",
+				"        <div class=\"test-component__main\">",
+				"            <p>",
+				"                This component is wrapped in a <code>&lt;div&gt;</code> element.",
+				"            </p>",
+				"        </div>",
+				"    </div>",
+				"",
+				"",
+				"",
+				"    <div class=\"test-component\">",
+				"        <h2 class=\"test-component__title\">Named and categorized component</h2>",
+				"        <div class=\"test-component__main\">",
+				"            <p>",
+				"                This component is wrapped in a <code>&lt;div&gt;</code> element.",
+				"                This component does have a category and a given name.",
+				"            </p>",
+				"        </div>",
+				"    </div>",
+				"",
+				"",
+				"    <p>",
+				"        The outer component has some more content below the nested partials.",
+				"    </p>",
+				"",
+				"</div>"
+			],
+			"name": "Outer Partial",
+			"options": {
+				"extract": "Outer Partial",
+				"wrap": {
+					"before": "",
+					"after": ""
+				}
+			},
+			"origin": "nested-partials.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "e61a308d"
+		},
+		{
+			"category": "test",
+			"id": "722a9efe",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Multiline extraction options</h2>",
+				"    <div class=\"test-component__main\">",
+				"        <p>",
+				"            This component does have a category and a given name.",
+				"        </p>",
+				"    </div>",
+				"</div>"
+			],
+			"name": "Multiline extraction options",
+			"options": {
+				"extract": "Single Partial",
+				"category": "test",
+				"name": "Multiline extraction options",
+				"wrap": {
+					"before": "",
+					"after": ""
+				}
+			},
+			"origin": "nested-partials.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "4413d738"
+		},
+		{
+			"category": "No category",
+			"id": "7ce440b7",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Wrapped component</h2>",
+				"    <div class=\"test-component__main\">",
+				"        <p>",
+				"            This component is wrapped in a <code>&lt;div&gt;</code> element.",
+				"        </p>",
+				"    </div>",
+				"</div>"
+			],
+			"name": "Nested",
+			"options": {
+				"extract": "Nested",
+				"Partial": "First Child of #1 ",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				}
+			},
+			"origin": "nested-partials.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "8a93b4db"
+		},
+		{
+			"category": "test",
+			"id": "7508d635",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Named and categorized component</h2>",
+				"    <div class=\"test-component__main\">",
+				"        <p>",
+				"            This component is wrapped in a <code>&lt;div&gt;</code> element.",
+				"            This component does have a category and a given name.",
+				"        </p>",
+				"    </div>",
+				"</div>"
+			],
+			"name": "Named component",
+			"options": {
+				"extract": "Nested",
+				"Partial": "Second Child of #1 ",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				},
+				"category": "test",
+				"name": "Named component"
+			},
+			"origin": "nested-partials.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "d140b5c1"
+		},
+		{
+			"category": "No category",
+			"id": "c81c50b5",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Simple component without options</h2>",
+				"</div>"
+			],
+			"name": "test-component-1.html",
+			"options": {
+				"extract": "test-component-1.html",
+				"wrap": {
+					"before": "",
+					"after": ""
+				}
+			},
+			"origin": "sample-document.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "e7912622"
+		},
+		{
+			"category": "No category",
+			"id": "11062792",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Wrapped component</h2>",
+				"    <div class=\"test-component__main\">",
+				"        <p>",
+				"            This component is wrapped in a <code>&lt;div&gt;</code> element.",
+				"        </p>",
+				"    </div>",
+				"</div>"
+			],
+			"name": "test-component-2.html",
+			"options": {
+				"extract": "test-component-2.html",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				}
+			},
+			"origin": "sample-document.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "8a93b4db"
+		},
+		{
+			"category": "test",
+			"id": "dcdecc73",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Named and categorized component</h2>",
+				"    <div class=\"test-component__main\">",
+				"        <p>",
+				"            This component is wrapped in a <code>&lt;div&gt;</code> element.",
+				"            This component does have a category and a given name.",
+				"        </p>",
+				"    </div>",
+				"</div>"
+			],
+			"name": "Named component",
+			"options": {
+				"extract": "test-component-3.html",
+				"wrap": {
+					"before": "<div class=\"component-wrap\">",
+					"after": "</div>"
+				},
+				"category": "test",
+				"name": "Named component"
+			},
+			"origin": "sample-document.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "d140b5c1"
+		},
+		{
+			"category": "test",
+			"id": "0d3fded3",
+			"group": "",
+			"lines": [
+				"<div class=\"test-component\">",
+				"    <h2 class=\"test-component__title\">Multiline extraction options</h2>",
+				"    <div class=\"test-component__main\">",
+				"        <p>",
+				"            This component does have a category and a given name.",
+				"        </p>",
+				"    </div>",
+				"</div>"
+			],
+			"name": "Multiline extraction options",
+			"options": {
+				"extract": "test-component-4.html",
+				"category": "test",
+				"name": "Multiline extraction options",
+				"wrap": {
+					"before": "",
+					"after": ""
+				}
+			},
+			"origin": "sample-document.html",
+			"resources": {
+				"classnames": {
+					"root": "",
+					"body": ""
+				},
+				"meta": [],
+				"scriptsFoot": {
+					"files": [],
+					"inline": []
+				},
+				"scriptsHead": {
+					"files": [],
+					"inline": []
+				},
+				"stylesHead": {
+					"files": [],
+					"inline": []
+				}
+			},
+			"usage": [],
+			"viewId": "4413d738"
 		}
-	],
-	"lengthUnique": 9,
-	"lengthTotal": 9
+	]
 }

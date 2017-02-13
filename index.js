@@ -76,11 +76,11 @@ ComponentInventory.prototype.create = function (callback) {
         items: [
             {
                 name: 'Component name',
-                partial: '<p>Partial code</p>'
+                lines: ['<p>Partial code</p>']
             },
             {
                 name: 'Another component',
-                partial: '<div class="another-component">\n    <p>Another component</p>\n</div>'
+                lines: ['<div class="another-component">', '<p>Another component</p>\n</div>']
             }
         ]
     };
@@ -256,7 +256,7 @@ ComponentInventory.prototype.prepareData = function (data) {
 
             fs.ensureDir(path.dirname(destinationPath), function (err) {
                 if (err === null) {
-                    fs.writeFileSync(destinationPath, item.template, 'utf8');
+                    fs.writeFileSync(destinationPath, item.lines.join('\n'), 'utf8');
                 }
             });
         }

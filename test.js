@@ -31,7 +31,7 @@ var ci = ComponentInventory({
     // Expand: create file per category
     expand: true,
     // Create partial files
-    storePartials: false,
+    storePartials: true,
     // Partial extension when stored
     partialExt: '.html',
     // Category for items without category
